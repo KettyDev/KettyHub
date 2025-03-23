@@ -1,0 +1,3 @@
+if game.PlaceId == 74260430392611 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/Rebirth%20Champions%20Ultimate"))()
+end
