@@ -1,3 +1,73 @@
-if game.PlaceId == 74260430392611 then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/Rebirth%20Champions%20Ultimate"))()
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local RealKey = "Key_12569123402"
+local key = ""
+
+if isfile("Key_Save.lua") then
+	local Last_Key = readfile("Key_Save.lua")
+
+    if Last_Key == RealKey then
+        print("Key is Valid!")
+		getgenv().UserKey = RealKey
+        Fluent:Destroy()
+		task.wait(2)
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/Rebirth%20Champions%20Ultimate%20MAIN"))()
+        return
+    else
+        
+    end
 end
+
+local Window = Fluent:CreateWindow({
+		Title = "Key System",
+		SubTitle = "Ketty Hub",
+		TabWidth = 160,
+		Size = UDim2.fromOffset(580, 340),
+		Acrylic = false,
+		Theme = "Darker",
+		MinimizeKey = Enum.KeyCode.LeftControl
+})
+
+local Tabs = {
+	KeySys = Window:AddTab({ Title = "Key System", Icon = "key" }),
+}
+
+local Entkey = Tabs.KeySys:AddInput("Input", {
+	Title = "Enter Key",
+	Description = "Enter Key Here",
+	Default = "",
+	Placeholder = "Enter key…",
+	Numeric = false,
+	Finished = false,
+	Callback = function(Value)
+		key = Value
+	end
+})
+
+local Checkkey = Tabs.KeySys:AddButton({
+	Title = "Check Key",
+	Description = "Enter Key before pressing this button",
+	Callback = function()
+        if key == RealKey then
+            print("Key is Valid!")
+            getgenv().UserKey = key
+            writefile("Key_Save.lua", key)
+
+            task.wait(1)
+            Fluent:Destroy()
+			task.wait(1)
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/Rebirth%20Champions%20Ultimate%20MAIN"))()
+        else
+            print("Wrong key! https://discord.gg/bZh4zpk6cj")
+        end
+	end
+})
+
+local Getkey = Tabs.KeySys:AddButton({
+	Title = "Get Key",
+	Description = "Copies the discord link where the key is! (https://discord.gg/bZh4zpk6cj)",
+	Callback = function()
+		setclipboard("https://discord.gg/bZh4zpk6cj")
+	end
+})
+
+Window:SelectTab(1)
