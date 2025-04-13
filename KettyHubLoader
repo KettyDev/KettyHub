@@ -3,5 +3,5 @@ local PlaceId = game.PlaceId
 if PlaceId == 74260430392611 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/RCU"))()
 elseif PlaceId == 85896571713843 then
-    print("Bubble Gum Simulator Infinity")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/KettyDev/KettyHub/refs/heads/main/BGSI"))()
 end
